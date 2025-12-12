@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Bisnupriya — My Queen 💜</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+/* ---- Global Purple Theme ---- */
+body {
+    margin: 0;
+    background: linear-gradient(135deg, #4b0082, #8a2be2, #c77dff);
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+}
+
+/* Play Button */
+#playButton {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 25px;
+    font-size: 18px;
+    background: #ffffffaa;
+    border: 2px solid #fff;
+    border-radius: 12px;
+    cursor: pointer;
+    z-index: 9999;
+    backdrop-filter: blur(5px);
+}
+
+/* ---- Sparkle Animation ---- */
+.sparkle {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: floatUp 4s linear infinite;
+}
+@keyframes floatUp {
+ 0% {transform: translateY(0) scale(1);}
+ 100% {transform: translateY(-100vh) scale(0);}
+}
+
+/* ---- Floating Hearts ---- */
+.heart {
+  position: fixed;
+  width: 18px;
+  height: 18px;
+  background: #ff69b4;
+  transform: rotate(45deg);
+  animation: floatHeart 6s infinite ease-in;
+  opacity: 0.7;
+}
+.heart:before, .heart:after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: #ff69b4;
+  border-radius: 50%;
+}
+.heart:before { top: -9px; left: 0; }
+.heart:after { left: -9px; top: 0; }
+
+@keyframes floatHeart {
+  0% { transform: translateY(0) rotate(45deg); opacity: 1; }
+  100% { transform: translateY(-90vh) rotate(45deg); opacity: 0; }
+}
+
+/* ---- Card ---- */
+.card {
+    width: 500px;
+    height: 600px;
+    margin: 80px auto;
+    perspective: 1000px;
+}
+
+.inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s ease;
+}
+
+.card:hover .inner {
+    transform: rotateY(180deg);
+}
+
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 3px solid #d29cff;
+    box-shadow: 0 0 25px rgba(255,255,255,0.4);
+}
+
+.front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(1.1);
+}
+
+.back {
+    background: white;
+    transform: rotateY(180deg);
+    padding: 25px;
+    text-align: center;
+}
+
+.back h1 {
+    font-size: 1.7em;
+    color: #7a00cc;
+    margin-bottom: 15px;
+}
+
+.back p {
+    color: #444;
+    font-style: italic;
+    font-size: 1.1em;
+    line-height: 1.5em;
+}
+
+@media (max-width: 500px) {
+    .card { 
+        transform: scale(0.85); 
+        margin-top: 30px; 
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- MUSIC BUTTON -->
+<button id="playButton">🎵 Tap to Play Music</button>
+
+<!-- HIDDEN YOUTUBE AUDIO -->
+<iframe id="ytAudio" width="0" height="0"
+src=""
+allow="autoplay"
+></iframe>
+
+<script>
+document.getElementById("playButton").onclick = function () {
+    // Load the YouTube video when user clicks
+    document.getElementById("ytAudio").src =
+      "https://www.youtube.com/embed/7dwvUvjldPI?autoplay=1&loop=1&controls=0&playlist=7dwvUvjldPI";
+
+    // Hide the button after starting music
+    this.style.display = "none";
+};
+</script>
+
+<!-- Sparkles + Hearts -->
+<script>
+for (let i=0; i<35; i++){
+  let s = document.createElement("div");
+  s.className = "sparkle";
+  s.style.left = Math.random()*100 + "vw";
+  s.style.top = Math.random()*100 + "vh";
+  s.style.animationDelay = Math.random()*3 + "s";
+  document.body.appendChild(s);
+}
+for (let i=0; i<20; i++){
+  let h = document.createElement("div");
+  h.className = "heart";
+  h.style.left = Math.random()*100 + "vw";
+  h.style.animationDelay = Math.random()*5 + "s";
+  document.body.appendChild(h);
+}
+</script>
+
+<!-- Birthday Card -->
+<div class="card">
+  <div class="inner">
+    <div class="front">
+      <img src="https://i.postimg.cc/bY2M99dY/bp-2.jpg" />
+    </div>
+
+    <div class="back">
+      <h1>Happy Birthday Bisnupriya 💜<br>My Queen</h1>
+
+      <p>My love, my queen, my everything…  
+      On your special day, I wish your life to be filled with  
+      endless happiness, peace, love, and success.</p>
+
+      <p>You are the most beautiful part of my world.  
+      Thank you for being with me. I love you endlessly 💜</p>
+
+      <p>— From your heart stealer</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
